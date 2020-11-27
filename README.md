@@ -41,8 +41,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### Production Deploy (Prompt #2)
  
-If you were asked to make the application you built into a production deployable version, what would you do? Please include this written answer
-as part of your README.
+If you were asked to make the application you built into a production deployable version, what would you do?
 
 I would write unit tests for every component in the project which would help catch any regressions that might occur in subsequent development. I would setup a CI pipeline in github to run my tests, run 'yarn build' to create a minified build, and to deploy the build to my host of choice (probably AWS). I would host at least two branches, one for development and testing and one for public use.
 
