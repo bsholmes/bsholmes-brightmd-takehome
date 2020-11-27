@@ -50,14 +50,14 @@ const EditablePane = ({
           >
             Cancel
           </LinkText>
-          <PrimaryCTA
+          <StyledCTA
             onClick={() => {
               onSave(editableData);
               setUIMode(MODE_OPTIONS.view);
             }}
           >
             Save
-          </PrimaryCTA>
+          </StyledCTA>
         </ControlsContainer>
       )}
       {childrenWithMode}
@@ -72,10 +72,11 @@ const Container = styled.div`
   position: relative;
 
   width 100%;
-
   max-width: 1024px;
 
   padding: 24px 0;
+
+  box-sizing: border-box;
 
   &:not(:first-child) {
    border-top: 1px solid ${mainTheme.borderGrey};
@@ -97,13 +98,17 @@ const LinkText = styled.div`
 
   color: ${mainTheme.linkBlue};
 
-  margin: auto 16px auto 0;
+  margin: auto 0;
 
   @media screen and (hover: hover) {
     &:hover {
       cursor: pointer;
     }
   }
+`;
+
+const StyledCTA = styled(PrimaryCTA)`
+  margin-left: 16px;
 `;
 
 export default EditablePane;

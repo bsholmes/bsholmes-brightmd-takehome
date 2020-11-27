@@ -3,7 +3,9 @@ import styled from 'styled-components/macro';
 
 import TitleHeader from './TitleHeader';
 
-import { H2Style } from '../styles/headings';
+import { H2Style, H3Style } from '../styles/headings';
+import { MQ_FOR_MOBILE } from '../styles/media';
+
 import Toggle from './Toggle';
 import { MODE_OPTIONS } from './EditablePane';
 import HourSelector from './HourSelector';
@@ -108,6 +110,10 @@ const Grid = styled.div`
 
   grid-template-columns: 148px 128px 1fr;
   grid-template-rows: repeat(1fr);
+
+  ${MQ_FOR_MOBILE} {
+    grid-template-columns: 72px 82px 1fr;
+  }
 `;
 
 const RowLabel = styled.div`
@@ -118,6 +124,10 @@ const RowLabel = styled.div`
   white-space: pre;
   
   ${H2Style}
+
+  ${MQ_FOR_MOBILE} {
+    ${H3Style}
+  }
 `;
 
 const CenteredToggle = styled(Toggle)`

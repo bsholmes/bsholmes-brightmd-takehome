@@ -39,8 +39,10 @@ export default App;
 const AppContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+
+  box-sizing: border-box;
 
   padding: 24px;
 `;

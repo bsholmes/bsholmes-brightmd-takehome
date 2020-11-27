@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { mainTheme } from '../styles/colors';
 
 import { H2Style } from '../styles/headings';
+import { MQ_FOR_MOBILE } from '../styles/media';
 
 const TextField = ({
   initialValue = '',
@@ -30,6 +31,10 @@ const Field = styled.input`
 
   border-radius: 4px;
   border: 1px solid ${mainTheme.midGrey};
+
+  ${MQ_FOR_MOBILE} {
+    height: auto;
+  }
 `;
 
 export default TextField;

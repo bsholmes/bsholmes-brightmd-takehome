@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { H1Style, H3Style } from '../styles/headings';
+import {
+  H1Style,
+  H2Style,
+  H3Style,
+  H4Style
+} from '../styles/headings';
+import { MQ_FOR_MOBILE } from '../styles/media';
 
 const TitleHeader = ({ header = '', subhead = '' }) => {
   return (
@@ -23,6 +29,10 @@ const HeaderText = styled.div`
   margin-bottom: 12px;
 
   ${H1Style}
+
+  ${MQ_FOR_MOBILE} {
+    ${H2Style}
+  }
 `;
 
 const SubHeadText = styled.div`
@@ -32,6 +42,10 @@ const SubHeadText = styled.div`
   max-width: 68%;
 
   ${H3Style}
+
+  ${MQ_FOR_MOBILE} {
+    ${H4Style}
+  }
 `;
 
 export default TitleHeader;

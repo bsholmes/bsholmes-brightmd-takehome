@@ -26,3 +26,10 @@ export const H3Style = `
   font-size: 12px;
   line-height: 16px;
 `;
+
+export const H4Style = `
+  ${H3Style}
+
+  font-size: 10px;
+  line-height: 14px;
+`;
