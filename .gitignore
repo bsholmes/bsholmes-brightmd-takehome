@@ -32,3 +32,5 @@ hs_err_pid*
 # VS Code
 *.code-workspace
 .vscode
+
+*.lock
