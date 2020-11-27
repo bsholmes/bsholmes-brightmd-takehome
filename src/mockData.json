@@ -1,0 +1,58 @@
+{
+  "hoursOfOperation": [
+    {
+      "label": "Sunday",
+      "isOpen": false,
+      "hoursString": ""
+    },
+    {
+      "label": "Monday",
+      "isOpen": true,
+      "hoursMin": "9:00 AM",
+      "hoursMax": "5:00 PM"
+    },
+    {
+      "label": "Tuesday",
+      "isOpen": true,
+      "hoursMin": "9:00 AM",
+      "hoursMax": "5:00 PM"
+    },
+    {
+      "label": "Wednesday",
+      "isOpen": true,
+      "hoursMin": "9:00 AM",
+      "hoursMax": "5:00 PM"
+    },
+    {
+      "label": "Thursday",
+      "isOpen": true,
+      "hoursMin": "9:00 AM",
+      "hoursMax": "5:00 PM"
+    },
+    {
+      "label": "Friday",
+      "isOpen": true,
+      "hoursMin": "9:00 AM",
+      "hoursMax": "5:00 PM"
+    },
+    {
+      "label": "Saturday",
+      "isOpen": false,
+      "hoursString": ""
+    }
+  ],
+  "branding": [
+    {
+      "label": "Full Name",
+      "value": "Bright.md Hospital"
+    },
+    {
+      "label": "Short Name",
+      "value": "BMD"
+    },
+    {
+      "label": "Welcome Text",
+      "value": "Get a quick diagnosis for many medication conditions from your computer or mobile device"
+    }
+  ]
+}
