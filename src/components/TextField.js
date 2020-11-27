@@ -10,14 +10,10 @@ const TextField = ({
   onBlur = () => {},
   ...props
 }) => {
-  const [textValue, setTextValue] = useState(initialValue);
   return (
     <Field
-      defaultValue={textValue}
-      onChange={evt => {
-        setTextValue(textValue);
-        onChange(textValue);
-      }}
+      defaultValue={initialValue}
+      onChange={evt => onChange(evt.target.value)}
       onBlur={onBlur}
       {...props}
     />

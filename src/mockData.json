@@ -3,7 +3,8 @@
     {
       "label": "Sunday",
       "isOpen": false,
-      "hoursString": ""
+      "hoursMin": "",
+      "hoursMax": ""
     },
     {
       "label": "Monday",
@@ -38,7 +39,8 @@
     {
       "label": "Saturday",
       "isOpen": false,
-      "hoursString": ""
+      "hoursMin": "",
+      "hoursMax": ""
     }
   ],
   "branding": [

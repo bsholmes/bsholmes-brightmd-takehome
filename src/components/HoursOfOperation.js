@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components/macro';
 
 import TitleHeader from './TitleHeader';
@@ -18,15 +18,13 @@ const DEFAULT_MIN_HOUR = '9:00 AM';
 const DEFAULT_MAX_HOUR = '5:00 PM';
 
 const HoursOfOperation = ({
-  hoursOfOpData = [],
-  onDataChange = () => {},
+  editableData = {},
+  setEditableData = () => {},
   uiMode = -1
 }) => {
-  const [localHoursData, setLocalHoursData] = useState(hoursOfOpData);
-
   // TODO: separate busincess logic into controller component or custom hook
   const updateIsOpen = (isOpen, index) => {
-    const newHoursData = [...localHoursData];
+    const newHoursData = [...editableData];
     newHoursData[index].isOpen = isOpen;
 
     // set default hours if we don't have any
@@ -37,19 +35,19 @@ const HoursOfOperation = ({
     if (isOpen && !newHoursData[index].hoursMax) {
       newHoursData[index].hoursMax = DEFAULT_MAX_HOUR;
     }
-    setLocalHoursData([...newHoursData]);
+    setEditableData([...newHoursData]);
   };
 
   const updateHoursMin = (hoursMin, index) => {
-    const newHoursData = [...localHoursData];
+    const newHoursData = [...editableData];
     newHoursData[index].hoursMin = hoursMin;
-    setLocalHoursData([...newHoursData]);
+    setEditableData([...newHoursData]);
   };
 
   const updateHoursMax = (hoursMax, index) => {
-    const newHoursData = [...localHoursData];
+    const newHoursData = [...editableData];
     newHoursData[index].hoursMax = hoursMax;
-    setLocalHoursData([...newHoursData]);
+    setEditableData([...newHoursData]);
   };
 
   // TODO: validation for hoursMax being less than or equal hoursMin
@@ -58,7 +56,7 @@ const HoursOfOperation = ({
     <Container>
       <TitleHeader header={HEADER_COPY} subhead={SUB_HEAD_COPY} />
       <Grid>
-        {localHoursData.map((day, index) => (
+        {editableData.map((day, index) => (
           // assuming the label is unique
           <React.Fragment key={day.label}>
             <RowLabel>{day.label}</RowLabel>

@@ -10,16 +10,21 @@ export const MODE_OPTIONS = {
   edit: 1
 };
 
+// make sure we aren't using references
+const deepCopy = data => JSON.parse(JSON.stringify(data));
+
 const EditablePane = ({
   children = [],
-  onSave = () => {}
+  onSave = () => {},
+  initialData = {}
 }) => {
   const [uiMode, setUIMode] = useState(MODE_OPTIONS.view);
+  const [editableData, setEditableData] = useState(deepCopy(initialData));
 
-  // inserts uiMode into generalized children
+  // inserts state props into generalized children
   const childrenWithMode = React.Children.map(children, child => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { uiMode });
+      return React.cloneElement(child, { uiMode, editableData, setEditableData });
     }
     return child;
   });
@@ -38,12 +43,18 @@ const EditablePane = ({
       {uiMode === MODE_OPTIONS.edit && (
         <ControlsContainer>
           <LinkText
-            onClick={() => setUIMode(MODE_OPTIONS.view)}
+            onClick={() => {
+              setEditableData(initialData);
+              setUIMode(MODE_OPTIONS.view);
+            }}
           >
             Cancel
           </LinkText>
           <PrimaryCTA
-            onClick={onSave}
+            onClick={() => {
+              onSave(editableData);
+              setUIMode(MODE_OPTIONS.view);
+            }}
           >
             Save
           </PrimaryCTA>

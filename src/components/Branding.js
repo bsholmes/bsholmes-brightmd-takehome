@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components/macro';
 
 import TitleHeader from './TitleHeader';
@@ -17,16 +17,14 @@ const FIELD_WIDTHS = [
 ];
 
 const Branding = ({
-  brandingData = {},
-  onDataChange = () => {},
+  editableData = {},
+  setEditableData = () => {},
   uiMode = -1
 }) => {
-  const [localBrandingData, setLocalBrandingData] = useState(brandingData);
-
   const updateBrandingValue = (value, index) => {
-    const newBrandingData = [...localBrandingData];
+    const newBrandingData = [...editableData];
     newBrandingData[index].value = value;
-    setLocalBrandingData([...newBrandingData]);
+    setEditableData([...newBrandingData]);
   };
 
   return (
@@ -35,7 +33,7 @@ const Branding = ({
       <SecondaryHeader>Display Name</SecondaryHeader>
       <SecondarySubHead>Set how the organization name is displayed to patients. In instances with limited screen space (emails, mobile view), a shortened name is displayed.</SecondarySubHead>
       <Grid>
-        {localBrandingData.map((brandingItem, index) => (
+        {editableData.map((brandingItem, index) => (
           // assuming the label is unique
           <React.Fragment key={brandingItem.label}>
             <RowLabel>{brandingItem.label}</RowLabel>

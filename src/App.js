@@ -17,17 +17,17 @@ const App = () => {
   return (
     <AppContainer id='app-outer-boundary'>
       <Column>
-        <EditablePane>
-          <HoursOfOperation
-            hoursOfOpData={hoursOfOpData}
-            onDataChange={setHoursOfOpData}
-          />
+        <EditablePane
+          initialData={hoursOfOpData}
+          onSave={setHoursOfOpData}
+        >
+          <HoursOfOperation />
         </EditablePane>
-        <EditablePane>
-          <Branding
-            brandingData={brandingData}
-            onDataChange={setBrandingData}
-          />
+        <EditablePane
+          initialData={brandingData}
+          onSave={setBrandingData}
+        >
+          <Branding />
         </EditablePane>
       </Column>
     </AppContainer>
